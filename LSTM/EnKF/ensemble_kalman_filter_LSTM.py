@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=invalid-name, too-many-arguments, too-many-instance-attributes
 # pylint: disable=attribute-defined-outside-init
+# The code is editted based on the FilterPy library. The license of FilterPy library is shown below. 
 
 """Copyright 2015 Roger R Labbe Jr.
 
