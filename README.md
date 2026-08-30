@@ -28,3 +28,36 @@ The experiments sweep several regimes: sufficient vs. insufficient training, acc
 
 ### `LSTM/` — Lorenz-96 with an LSTM surrogate
 
+LSTM/
+├── Training/ # Train the LSTM forward model
+│ ├── LSTM_Lorenz96_EnSF_1.ipynb
+│ ├── LSTM_Lorenz96_EnSF_accurate_100.pth # checkpoint: accurate data, 100 epochs
+│ └── LSTM_Lorenz96_EnSF_accurate_200.pth # checkpoint: accurate data, 200 epochs
+│
+├── EnSF/ # Ensemble Score Filter experiments
+│ ├── SA/ # Sufficient + Accurate training data
+│ │ ├── LSTM_Lorenz96_SA.ipynb # full-observation assimilation
+│ │ ├── LSTM_Lorenz96_SA_Partial_obs.ipynb # partial (5 of 20 dims observed)
+│ │ ├── LSTM_Lorenz96_EnSF_accurate_1500.pth
+│ │ ├── diffusion.py
+│ │ ├── lorenz96_20.txt
+│ │ └── param_combined.csv # experiment parameter grid
+│ ├── SI/ # Sufficient but Inaccurate (noisy) training data
+│ │ ├── LSTM_Lorenz96_SI.ipynb
+│ │ ├── LSTM_Lorenz96_EnSF_inaccurate_1500.pth
+│ │ └── diffusion.py
+│ ├── IA/ # Insufficient but Accurate training data
+│ │ ├── LSTM_Lorenz96_IA.ipynb
+│ │ ├── LSTM_Lorenz96_EnSF_accurate_100.pth
+│ │ └── diffusion.py
+│ └── initial_states/ # ~40 Lorenz-96 initial-condition files for repeated trials
+│
+└── EnKF/ # Ensemble Kalman Filter (benchmark) experiments
+├── LSTM_Lorenz96_EnKF_all.ipynb
+├── LSTM_Lorenz96_EnKF_single.ipynb
+├── LSTM_Lorenz96_EnKF_partial.ipynb
+├── LSTM_Lorenz96_EnKF_partial_single.ipynb
+├── LSTM_Lorenz96_EnKF_inaccurate_all.ipynb
+├── LSTM_Lorenz96_EnKF_insufficient_all.ipynb
+├── ensemble_kalman_filter_LSTM.py # custom EnKF (adapted from FilterPy)
+└── diffusion.py
